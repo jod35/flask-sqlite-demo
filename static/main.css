@@ -3,7 +3,20 @@
     margin: 0;
     font-family: sans-serif;
 }
+body{
+    color: brown;
+}
+nav{
+    display: flex;
+    justify-content: center;
 
+}
+
+nav a{
+    padding: 20px;
+    color:  brown;
+    text-decoration: none;
+}
 .form{
     width: 50%;
     margin: auto;
@@ -15,7 +28,7 @@
 }
 
 input{
-    width: 100%;
+    
     border: none;
     outline: none;
     text-align: center;
@@ -24,14 +37,17 @@ input{
 input[type="text"]{
     border-bottom:brown 2px solid;
     padding: 20px;
+    width: 100%;
 }
 input[type="email"]{
     border-bottom:brown 2px solid;
     padding: 20px;
+    width: 100%;
 }
 input[type="password"]{
     border-bottom:brown 2px solid;
     padding: 20px;
+    width: 100%;
 }
 input[type="submit"]{
     border-bottom:brown 2px solid;

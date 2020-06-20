@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,flash,redirect
+from flask import Flask,render_template,request,flash,redirect,session
 from flask_bcrypt import Bcrypt
 from .models import insert_record,retrieve_user_password
 
@@ -39,6 +39,19 @@ def login():
 
         if retrieve_user_password(email):
             user_password=retrieve_user_password(email)
-            print(bcrypt.check_password_hash(user_password[0][0],password))
+            if bcrypt.check_password_hash(user_password[0][0],password):
+                session['logged_in']=True
+                return redirect('/loggedin')
     return render_template('login.html')
     
+@app.route('/loggedin')
+def logged_in():
+    if not session.get('logged_in'):
+        return redirect('/login')
+    else:
+        return render_template('logged_in.html')
+
+@app.route('/logout')
+def logout():
+    session['logged_in']=False
+    return redirect('/login')
