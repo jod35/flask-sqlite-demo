@@ -11,9 +11,13 @@ def insert_record(name,email,password):
     conn.commit()
 
 
-def retrieve(email):
-    cur.execute("SELECT * FROM user WHERE email= ? ",(email))
-    
+def retrieve_user_password(email):
+    cur.execute("SELECT password FROM user WHERE email= ?",(email,))
+
+    row=cur.fetchall()
+
+    return row
+
 
 
 
