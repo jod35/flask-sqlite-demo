@@ -12,11 +12,10 @@ cursor=conn.cursor()
 cursor.execute(
 """
 CREATE TABLE user(
-    id INT,
+    id INT AUTO_INCREMENT,
     name VARCHAR(25),
     email VARCHAR(80),
     password TEXT,
-
     PRIMARY KEY (id)
 );
 
