@@ -12,6 +12,13 @@
         <a href="/">Home</a>
         <a href="/login">Login</a>
     </nav>
+    {% with message = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+               <center>{{message}}</center>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div class="form">
         <form action="/login" method="post">
             <h2>Sign In</h2>

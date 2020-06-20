@@ -38,10 +38,17 @@ def login():
         password=request.form.get('password')
 
         if retrieve_user_password(email):
+
             user_password=retrieve_user_password(email)
+
             if bcrypt.check_password_hash(user_password[0][0],password):
+
                 session['logged_in']=True
+                
                 return redirect('/loggedin')
+            else:
+                flash("The account doesnot exist")
+                return redirect('/login')
     return render_template('login.html')
     
 @app.route('/loggedin')
